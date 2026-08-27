@@ -13,7 +13,10 @@ import {
 } from 'src/engine/metadata-modules/ai/ai.exception';
 import { AiModelPreferencesService } from 'src/engine/metadata-modules/ai/ai-models/services/ai-model-preferences.service';
 import { ProviderConfigService } from 'src/engine/metadata-modules/ai/ai-models/services/provider-config.service';
-import { SdkProviderFactoryService } from 'src/engine/metadata-modules/ai/ai-models/services/sdk-provider-factory.service';
+import {
+  SdkProviderFactoryService,
+  type AiSdkProviderInstance,
+} from 'src/engine/metadata-modules/ai/ai-models/services/sdk-provider-factory.service';
 import { type AiModelConfig } from 'src/engine/metadata-modules/ai/ai-models/types/ai-model-config.type';
 import { type AiProviderConfig } from 'src/engine/metadata-modules/ai/ai-models/types/ai-provider-config.type';
 import { type AiProviderModelConfig } from 'src/engine/metadata-modules/ai/ai-models/types/ai-provider-model-config.type';
@@ -105,9 +108,26 @@ export class AiModelRegistryService {
         continue;
       }
 
-      const sdkInstance = isProviderConfigured(config)
-        ? this.sdkProviderFactory.createProvider(providerKey, config)
-        : undefined;
+      // Several providers throw on incomplete config: openai-compatible and
+      // azure without baseUrl, vertex without project, any unknown package.
+      // Left uncaught, one bad entry aborts this loop after the registry has
+      // already been cleared, so every model from every provider disappears.
+      // Falling back to undefined disables just this provider, matching what
+      // happens when it is not configured at all.
+      let sdkInstance: AiSdkProviderInstance | undefined;
+
+      if (isProviderConfigured(config)) {
+        try {
+          sdkInstance = this.sdkProviderFactory.createProvider(
+            providerKey,
+            config,
+          );
+        } catch (error) {
+          this.logger.warn(
+            `Skipping provider "${providerKey}": ${error instanceof Error ? error.message : error}`,
+          );
+        }
+      }
 
       for (const modelDef of models) {
         const compositeId = buildCompositeModelId(providerKey, modelDef.name);

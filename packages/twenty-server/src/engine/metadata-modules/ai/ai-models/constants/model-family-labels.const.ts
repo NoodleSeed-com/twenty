@@ -6,4 +6,5 @@ export const MODEL_FAMILY_LABELS: Record<string, string> = {
   [ModelFamily.GEMINI]: 'Gemini',
   [ModelFamily.MISTRAL]: 'Mistral',
   [ModelFamily.GROK]: 'Grok',
+  [ModelFamily.GLM]: 'GLM',
 };

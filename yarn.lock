@@ -29,6 +29,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ai-sdk/anthropic@npm:3.0.113":
+  version: 3.0.113
+  resolution: "@ai-sdk/anthropic@npm:3.0.113"
+  dependencies:
+    "@ai-sdk/provider": "npm:3.0.15"
+    "@ai-sdk/provider-utils": "npm:4.0.48"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/f31d47e289b74583a33c3de7c411828d1b31e02303cad68bad6b3b58a7fa3aef8154fcda35819345efcf43ab2f4cc730d972ed56eda2e43f57e83e2b6de2b7d6
+  languageName: node
+  linkType: hard
+
 "@ai-sdk/anthropic@npm:3.0.84, @ai-sdk/anthropic@npm:^3.0.83":
   version: 3.0.84
   resolution: "@ai-sdk/anthropic@npm:3.0.84"
@@ -80,6 +92,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ai-sdk/google-vertex@npm:^4.0.177":
+  version: 4.0.188
+  resolution: "@ai-sdk/google-vertex@npm:4.0.188"
+  dependencies:
+    "@ai-sdk/anthropic": "npm:3.0.113"
+    "@ai-sdk/google": "npm:3.0.113"
+    "@ai-sdk/openai-compatible": "npm:2.0.72"
+    "@ai-sdk/provider": "npm:3.0.15"
+    "@ai-sdk/provider-utils": "npm:4.0.48"
+    google-auth-library: "npm:^10.5.0"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/bfd49bc796198a17c2f50a4af2a1daa099d8c3ae82231cd61d61c21d3d6d6118112e1eb1204ab8bb8dfc477a49b054a0bbb271364ec23f2713ca187d55378655
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/google@npm:3.0.113":
+  version: 3.0.113
+  resolution: "@ai-sdk/google@npm:3.0.113"
+  dependencies:
+    "@ai-sdk/provider": "npm:3.0.15"
+    "@ai-sdk/provider-utils": "npm:4.0.48"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/fba3156a9430a7e931cfc276ac9c56327f2b9f0d61750a6242a76fa87c3fe0f2eea79c9c83322d121e5286699540ae1a19847fc790abbf3b69369bebd3822cb9
+  languageName: node
+  linkType: hard
+
 "@ai-sdk/google@npm:^3.0.81":
   version: 3.0.82
   resolution: "@ai-sdk/google@npm:3.0.82"
@@ -113,6 +153,18 @@ __metadata:
   peerDependencies:
     zod: ^3.25.76 || ^4.1.8
   checksum: 10c0/1654d5e0071616c44ffbc40605dee965aefff615efd89426e2fb600f22eae62b73b28e0b30cd033e570624ca31d34c8c95dab2d41324413eb5fdf7f2b347f2f1
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/openai-compatible@npm:2.0.72":
+  version: 2.0.72
+  resolution: "@ai-sdk/openai-compatible@npm:2.0.72"
+  dependencies:
+    "@ai-sdk/provider": "npm:3.0.15"
+    "@ai-sdk/provider-utils": "npm:4.0.48"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/2f83ccb18d1b363e619f325cf0bfa967e3f616d2a9a0238041149842cd2e6849dd2202d8c8e190d3df64331a3d7c589c824f9e0823628b68191847bf8d39b6a2
   languageName: node
   linkType: hard
 
@@ -192,6 +244,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ai-sdk/provider-utils@npm:4.0.48":
+  version: 4.0.48
+  resolution: "@ai-sdk/provider-utils@npm:4.0.48"
+  dependencies:
+    "@ai-sdk/provider": "npm:3.0.15"
+    "@standard-schema/spec": "npm:^1.1.0"
+    eventsource-parser: "npm:^3.0.8"
+    undici: "npm:^6.28.0"
+  peerDependencies:
+    zod: ^3.25.76 || ^4.1.8
+  checksum: 10c0/49ac7a7e06b610ce79b217dcc62a9e48153538996ccf41cfff8945922993a6c49ac1f76ceb332f21b2c1e6b48ee6acf6971c1e8b57baa8ddc84b176f9d6abd7b
+  languageName: node
+  linkType: hard
+
 "@ai-sdk/provider-utils@npm:4.0.5":
   version: 4.0.5
   resolution: "@ai-sdk/provider-utils@npm:4.0.5"
@@ -211,6 +277,15 @@ __metadata:
   dependencies:
     json-schema: "npm:^0.4.0"
   checksum: 10c0/c9b162165c3fd4684e4f7a1c041db3ad75785c841d904bac577006b7b2299d1b465557b1d32e3f59b6d8536a0ef5741b195aad86fc3e0e1d2a39f077062a83c4
+  languageName: node
+  linkType: hard
+
+"@ai-sdk/provider@npm:3.0.15":
+  version: 3.0.15
+  resolution: "@ai-sdk/provider@npm:3.0.15"
+  dependencies:
+    json-schema: "npm:^0.4.0"
+  checksum: 10c0/0a17eca818c6d821e9488188cf02789502e426eff125d9c9572c2308baead3ed2e93ad53856887b207f287e6907441da81860e31350b12a11c91a6dfd1c6f344
   languageName: node
   linkType: hard
 
@@ -32366,6 +32441,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"google-auth-library@npm:^10.5.0":
+  version: 10.9.1
+  resolution: "google-auth-library@npm:10.9.1"
+  dependencies:
+    base64-js: "npm:^1.3.0"
+    ecdsa-sig-formatter: "npm:^1.0.11"
+    gaxios: "npm:^7.1.4"
+    gcp-metadata: "npm:8.1.2"
+    google-logging-utils: "npm:1.1.3"
+    jws: "npm:^4.0.0"
+  checksum: 10c0/46babe840d295ad94044bdba763bd41b10dc50d60f00e3e7b441465db171dc54c8f33ba44212db40e84aba3a72c23d642fa5a807e778e60049ad7d860d100680
+  languageName: node
+  linkType: hard
+
 "google-logging-utils@npm:1.1.3":
   version: 1.1.3
   resolution: "google-logging-utils@npm:1.1.3"
@@ -49742,6 +49831,7 @@ __metadata:
     "@ai-sdk/anthropic": "npm:^3.0.83"
     "@ai-sdk/azure": "npm:^3.0.55"
     "@ai-sdk/google": "npm:^3.0.81"
+    "@ai-sdk/google-vertex": "npm:^4.0.177"
     "@ai-sdk/mistral": "npm:^3.0.38"
     "@ai-sdk/openai": "npm:^3.0.70"
     "@ai-sdk/openai-compatible": "npm:^2.0.49"
@@ -50702,7 +50792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^6.25.0":
+"undici@npm:^6.25.0, undici@npm:^6.28.0":
   version: 6.28.0
   resolution: "undici@npm:6.28.0"
   checksum: 10c0/3029a70df06b38b5b2f30732932a1e92544c753cd82c8abdf0d35afad48e0ba91612e79fe3a442dbbb9434d6a9eba2b714d5ea28984c903dda2b5d5444f38354
