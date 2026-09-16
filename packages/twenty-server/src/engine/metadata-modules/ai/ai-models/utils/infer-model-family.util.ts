@@ -6,6 +6,7 @@ const NAME_TO_MODEL_FAMILY: Record<string, ModelFamily> = {
   google: ModelFamily.GEMINI,
   mistral: ModelFamily.MISTRAL,
   xai: ModelFamily.GROK,
+  glm: ModelFamily.GLM,
 };
 
 // For aggregator providers (Groq, Bedrock, etc.), detect model family
@@ -16,6 +17,7 @@ const MODEL_ID_FAMILY_PATTERNS: [RegExp, ModelFamily][] = [
   [/gemini/i, ModelFamily.GEMINI],
   [/mistral|mixtral|pixtral/i, ModelFamily.MISTRAL],
   [/grok/i, ModelFamily.GROK],
+  [/glm/i, ModelFamily.GLM],
 ];
 
 export const inferModelFamily = (

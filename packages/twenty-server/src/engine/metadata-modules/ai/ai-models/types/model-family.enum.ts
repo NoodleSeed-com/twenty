@@ -4,4 +4,5 @@ export enum ModelFamily {
   GEMINI = 'GEMINI',
   MISTRAL = 'MISTRAL',
   GROK = 'GROK',
+  GLM = 'GLM',
 }

@@ -144,9 +144,26 @@ export class AiModelRegistryService {
         continue;
       }
 
-      const sdkInstance = isProviderConfigured(config)
-        ? this.sdkProviderFactory.createProvider(providerKey, config)
-        : undefined;
+      // Several providers throw on incomplete config: openai-compatible and
+      // azure without baseUrl, vertex without project, any unknown package.
+      // Left uncaught, one bad entry aborts this loop after the registry has
+      // already been cleared, so every model from every provider disappears.
+      // Falling back to undefined disables just this provider, matching what
+      // happens when it is not configured at all.
+      let sdkInstance: AiSdkProviderInstance | undefined;
+
+      if (isProviderConfigured(config)) {
+        try {
+          sdkInstance = this.sdkProviderFactory.createProvider(
+            providerKey,
+            config,
+          );
+        } catch (error) {
+          this.logger.warn(
+            `Skipping provider "${providerKey}": ${error instanceof Error ? error.message : error}`,
+          );
+        }
+      }
 
       for (const modelDef of models) {
         const compositeId = buildCompositeModelId(providerKey, modelDef.name);
