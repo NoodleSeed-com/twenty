@@ -22,6 +22,7 @@
     "@ai-sdk/anthropic": "^4.0.49",
     "@ai-sdk/azure": "^4.0.63",
     "@ai-sdk/google": "^4.0.64",
+    "@ai-sdk/google-vertex": "^4.0.177",
     "@ai-sdk/mistral": "^4.0.39",
     "@ai-sdk/openai": "^4.0.60",
     "@ai-sdk/openai-compatible": "^3.0.44",
